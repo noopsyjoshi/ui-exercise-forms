@@ -1,0 +1,17 @@
+.accordion {
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__arrow {
+    font-size: 2rem;
+    line-height: 100%;
+  }
+
+  &__panel {
+    height: 0;
+    display: none;
+  }
+}
