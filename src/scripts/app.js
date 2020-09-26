@@ -25,7 +25,6 @@ window.onload = function () {
 
       // Validate email
       isValid(email);
-      console.log(isValid(email));
 
       // Show/hide invalid email message
       if (!isValid(email)) {
@@ -33,6 +32,35 @@ window.onload = function () {
       } else {
         invalidEmailMsg.classList.add("hidden");
       }
+
+      const data = { email: email };
+
+      // Get response using url in server.js
+      fetch("http://localhost:3005/customer/account/resetPassword", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.errors.length === 0) {
+            console.log("user found");
+            // display success message
+          }
+
+          if (data.errors.length > 0) {
+            const status = data.errors[0].status;
+            if (status === 404 || status === 400) {
+              console.log("user not found");
+              // display error message
+            }
+          }
+        })
+        .catch((error) => {
+          console.error("error", error);
+        });
     };
 
   const isValid = function (email) {
