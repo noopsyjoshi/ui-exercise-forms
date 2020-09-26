@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex-pos($align-items: center, $justify-content: center) {
+  align-items: $align-items;
+  display: flex;
+  justify-content: $justify-content;
+}
+
+@mixin button-reset {
+  appearance: none;
+  background: none;
+  border: 0;
+}
+
+// Colour Variables
+$c-grey-background: #f7f7f8;
+$c-grey-border: #eaeaea;
+$c-blue: #005194;
+$c-white: #ffffff;
+$c-black: #000000;
+
+.password-reset {
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+  @include flex-pos;
+  flex-direction: column;
+
+  &__container {
+    width: 80vw;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+  }
+
+  &__status-block {
+    margin: 40px 0;
+  }
+
+  &__form-container {
+    @include flex-pos;
+    padding: 2vw;
+    background-color: $c-grey-background;
+    border: 1px solid $c-grey-border;
+  }
+
+  &__form-inner {
+    @include flex-pos;
+    flex-direction: column;
+    max-width: 32vw;
+  }
+
+  &__form {
+    width: 100%;
+    border: 1px solid $c-black;
+  }
+
+  &__fieldset {
+    @include flex-pos(center, flex-start);
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    flex-grow: 1;
+    padding: 15px;
+    width: 100%;
+  }
+
+  &__button-wrapper {
+    width: 100%;
+    @include flex-pos(center, space-between);
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    @include button-reset;
+    background-color: $c-blue;
+    color: $c-white;
+    padding: 15px;
+    min-width: 250px;
+    font-size: 1rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $c-blue;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &__invalid-email {
+    display: block;
+    color: red;
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
