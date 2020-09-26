@@ -3,11 +3,79 @@
   <head>
     <meta charset="utf-8" />
     <title>Password Reset Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./styles/style.scss" />
     <script async src="./scripts/app.js"></script>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <section class="password-reset">
+      <div class="password-reset__container">
+        <!-- Title and description -->
+        <div class="password-reset__header">
+          <h1 class="password-reset__title">Forgot your password?</h1>
+          <p class="password-reset__description">
+            Please enter your email address below to receive a password reset
+            link.
+          </p>
+        </div>
+        <!-- Form Container -->
+        <div class="password-reset__form-container">
+          <!-- Display success/error messages -->
+          <div class="password-reset__status-block">
+            <p class="password-reset__status password-reset__status--error">
+              Sorry, there is no account attached to that email address
+            </p>
+            <p class="password-reset__status password-reset__status--success">
+              Success, we have emailed your password reset link
+            </p>
+          </div>
+          <!-- Form containing email field and submit button -->
+          <form class="password-reset__form">
+            <fieldset class="password-reset__fieldset">
+              <label for="pw-reset-email" class="password-reset__label"
+                >Email Address</label
+              >
+              <input
+                required
+                type="email"
+                id="pw-reset-email"
+                placeholder="Your email address"
+                class="password-reset__input"
+              />
+            </fieldset>
+          </form>
+          <!-- Display incorrect email address message -->
+          <span
+            id="pw-reset-invalid"
+            class="hidden password-reset__invalid-email"
+            >Please enter a valid email address</span
+          >
+          <div class="password-reset__button-wrapper">
+            <button id="pw-reset-submit" class="password-reset__button">
+              Reset Password
+            </button>
+            <a href="#" class="password-reset__link">Go Back</a>
+          </div>
+        </div>
+        <!-- Accordion to toggle information -->
+        <div class="accordion">
+          <div class="accordion__toggle">
+            <p>Are you having trouble receiving your password reset?</p>
+            <div class="accordion__arrow">&#x2304;</div>
+          </div>
+          <div class="accordion__panel">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
